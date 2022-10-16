@@ -1,0 +1,32 @@
+{
+  "name": "mern_jobify",
+  "version": "1.0.0",
+  "description": "Project in Action - [Jobify](https://www.jobify.live/)",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/XILE-CAI/MERN-JOBIFY.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/XILE-CAI/MERN-JOBIFY/issues"
+  },
+  "homepage": "https://github.com/XILE-CAI/MERN-JOBIFY#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-async-errors": "^3.1.1",
+    "http-status-codes": "^2.2.0",
+    "mongoose": "^6.6.5",
+    "validator": "^13.7.0"
+  }
+}

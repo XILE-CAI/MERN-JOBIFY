@@ -2,6 +2,9 @@ import styled from 'styled-components'
 
 const Wrapper = styled.main`
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   img {
     max-width: 600px;
     display: block;
