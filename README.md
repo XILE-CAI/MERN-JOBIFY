@@ -118,3 +118,13 @@ npm start
 
 #### Http Status Codes
 - npm install http-status-codes
+
+#### Hash Password
+- npm install bcryptjs
+
+#### JWT 
+- npm install jsonwebtoken
+
+#### Concurrently
+- front-end and backend(server)
+- npm install concurrently --save-dev
