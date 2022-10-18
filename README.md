@@ -128,3 +128,6 @@ npm start
 #### Concurrently
 - front-end and backend(server)
 - npm install concurrently --save-dev
+
+#### proxy
+#### add user to local storage
