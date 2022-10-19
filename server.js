@@ -6,6 +6,7 @@ import connectDB from './db/connect.js'
 
 dotenv.config()
 
+import morgan from 'morgan'
 //avoid to use try catch
 import 'express-async-errors'
 
@@ -16,6 +17,10 @@ import errorHandlerMiddleware from "./middleware/error-handler.js"
 //routers
 import authRouter from "./routes/authRoutes.js"
 import jobsRouter from "./routes/jobsRoutes.js"
+
+if(process.env.NODE_ENV !== 'production'){
+    app.use(morgan('dev'))
+}
 
 //make jason data available
 app.use(express.json())
