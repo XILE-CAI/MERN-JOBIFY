@@ -1,11 +1,23 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { Dashboard, Landing, Register,Error} from "./pages";
+import {  ProtectedRoute, Landing, Register, Error} from "./pages";
+import { AddJob, AllJobs, Profile, Stats, ShareLayout } from './pages/dashboard'
 
 function App() {
   return (
    <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Dashboard />} />
+        {/* nested pages */}
+        <Route path="/" element={
+          <ProtectedRoute>
+              <ShareLayout /> 
+          </ProtectedRoute>
+        }>
+          {/* homepage show stats */}
+            <Route index element={<Stats/>}></Route>
+            <Route path="all-jobs" element={<AllJobs/>}></Route>
+            <Route path="add-job" element={<AddJob/>}></Route>
+            <Route path="profile" element={<Profile/>}></Route>
+        </Route>
         <Route path="/register" element={<Register />} />
         <Route path="/landing" element={<Landing />} />
         <Route path="*" element={<Error />} />
