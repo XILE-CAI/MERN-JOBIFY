@@ -9,6 +9,7 @@ import {
     LOGIN_USER_BEGIN,
     LOGIN_USER_SUCCESS,
     LOGIN_USER_ERROR,
+    TOGGLE_SIDEBAR,
 } from "./actions"
 
 import axios from 'axios'
@@ -26,6 +27,7 @@ const initialState={
    token:token,
    userLocation:userLocation || '',
    jobLocation:userLocation || '',
+   showSidebar:false,
 }
 
 //first step create context obejct
@@ -59,6 +61,7 @@ const AppProvider = ({children}) => {
         localStorage.removeItem('location')
     }
 
+    //register function
     const registerUser = async(currentUser) => {
         dispatch({type:REGISTER_USER_BEGIN })
         try {
@@ -105,7 +108,12 @@ const AppProvider = ({children}) => {
         clearAlert()
     }
 
-    return <AppContext.Provider value={{...state,displayAlert,registerUser,loginUser}}>
+    //toggle sidebar function
+    const toggleSidebar = () => {
+        dispatch({type:TOGGLE_SIDEBAR})
+    }
+
+    return <AppContext.Provider value={{...state,displayAlert,registerUser,loginUser,toggleSidebar}}>
         {children}
     </AppContext.Provider>
 }

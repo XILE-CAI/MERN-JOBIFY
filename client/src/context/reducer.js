@@ -7,6 +7,7 @@ import {
     LOGIN_USER_BEGIN,
     LOGIN_USER_SUCCESS,
     LOGIN_USER_ERROR,
+    TOGGLE_SIDEBAR,
 } from "./actions"
 
 const reducer = (state, action) => {
@@ -82,6 +83,14 @@ const reducer = (state, action) => {
             showAlert:true,
             alertType:'danger',
             alertText:action.payload.msg
+        }
+    }
+
+    //TOGGLE SIDEBAR
+    if(action.type === TOGGLE_SIDEBAR){
+        return {
+            ...state, 
+            showSidebar:!state.showSidebar,
         }
     }
 
