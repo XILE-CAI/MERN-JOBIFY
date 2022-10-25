@@ -147,3 +147,9 @@ npm start
 #### Navbar , Sidebar
 
 #### Navbar Setup
+
+#### Logout function
+
+#### Small & Big Sidebar
+
+#### NavLinks Component

@@ -10,6 +10,7 @@ import {
     LOGIN_USER_SUCCESS,
     LOGIN_USER_ERROR,
     TOGGLE_SIDEBAR,
+    LOGOUT_USER,
 } from "./actions"
 
 import axios from 'axios'
@@ -30,7 +31,7 @@ const initialState={
    showSidebar:false,
 }
 
-//first step create context obejct
+//first step create context object
 const AppContext = React.createContext()
 
 //children
@@ -113,7 +114,23 @@ const AppProvider = ({children}) => {
         dispatch({type:TOGGLE_SIDEBAR})
     }
 
-    return <AppContext.Provider value={{...state,displayAlert,registerUser,loginUser,toggleSidebar}}>
+    //logout function
+    const logoutUser = () =>{
+        dispatch({type:LOGOUT_USER})
+        removeUserFromLocalStorage()
+    }
+
+    return <AppContext.Provider 
+        value={
+            {
+                ...state,
+                displayAlert,
+                registerUser,
+                loginUser,
+                toggleSidebar,
+                logoutUser
+            }
+        }>
         {children}
     </AppContext.Provider>
 }
