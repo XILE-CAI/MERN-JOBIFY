@@ -6,6 +6,7 @@ function App() {
   return (
    <BrowserRouter>
       <Routes>
+        
         {/* nested pages */}
         <Route path="/" element={
           <ProtectedRoute>
@@ -18,6 +19,7 @@ function App() {
             <Route path="add-job" element={<AddJob/>}></Route>
             <Route path="profile" element={<Profile/>}></Route>
         </Route>
+
         <Route path="/register" element={<Register />} />
         <Route path="/landing" element={<Landing />} />
         <Route path="*" element={<Error />} />

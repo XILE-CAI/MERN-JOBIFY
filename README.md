@@ -153,3 +153,5 @@ npm start
 #### Small & Big Sidebar
 
 #### NavLinks Component
+
+##### UpdatedUser and All jobs are restricted
