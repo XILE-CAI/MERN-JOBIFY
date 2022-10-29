@@ -20,6 +20,7 @@ const AddJob = () => {
     handleChange,
     clearValues,
     createJob,
+    editJob,
   } = useAppContext()
 
   const handleJobInput = (e) => {
@@ -35,6 +36,7 @@ const AddJob = () => {
     //   return
     // } 
     if(isEditing){
+      editJob()
       return
     }
     createJob()
@@ -63,7 +65,7 @@ const AddJob = () => {
           {/* Location */}
           <FormRow 
             type='text' 
-            labelText = 'Job Location'
+            labelText = 'job location'
             name='jobLocation' 
             value={jobLocation}
             handleChange = {handleJobInput}

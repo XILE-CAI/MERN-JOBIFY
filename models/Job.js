@@ -23,7 +23,7 @@ const JobSchema = new mongoose.Schema({
         maxLength:100,
         default:'full-time'
     },
-    JobLocation: {
+    jobLocation: {
         type:String,
         default:'my city',
         required: true

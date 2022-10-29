@@ -19,6 +19,10 @@ import {
     CREATE_JOB_BEGIN,
     CREATE_JOB_SUCCESS,
     CREATE_JOB_ERROR,
+    GET_JOBS_BEGIN,
+    GET_JOBS_SUCCESS,
+    SET_EDIT_JOB,
+
 } from "./actions"
 
 import axios from 'axios'
@@ -41,11 +45,16 @@ const initialState={
    editJobId:'',
    position:'',
    company:'',
-   jobLocation:userLocation || '',
+   jobLocation: userLocation || '',
    jobTypeOptions:['full-time','part-time','casual','contract','remote','intern'],
    jobType:'full-time',
    statusOptions:['interview','pending','declined'],
    status:'pending',
+   jobs:[],
+   totalJobs:0,
+   numOfPages:1,
+   page:1,
+
 }
 
 //first step create context object
@@ -224,6 +233,42 @@ const AppProvider = ({children}) => {
         clearAlert()
     }
 
+    //GET JOBS
+    const getJobs = async () => {
+        let url = '/jobs'
+
+        dispatch({type:GET_JOBS_BEGIN})
+        try {
+            const {data} = await authFetch.get(url);
+            const {jobs, totalJobs, numOfPages} = data
+            dispatch({
+                type:GET_JOBS_SUCCESS,
+                payload:{
+                    jobs,
+                    totalJobs,
+                    numOfPages,
+                }
+            }
+                
+            )
+        } catch (error) {
+            console.log(error.response)
+        }
+        clearAlert()
+    }
+
+    const setEditJob = (id) =>{
+        dispatch({type:SET_EDIT_JOB,payload:{id}})
+    }
+    
+    const editJob = () => {
+        console.log('edit job')
+    }
+
+    const deleteJob = (id) =>{
+        console.log(`delete job: ${id}`)
+    }
+
     return <AppContext.Provider 
         value={
             {
@@ -237,6 +282,10 @@ const AppProvider = ({children}) => {
                 handleChange,
                 clearValues,
                 createJob,
+                getJobs,
+                setEditJob,
+                deleteJob,
+                editJob,
             }
         }>
         {children}
