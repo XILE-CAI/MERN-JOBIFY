@@ -22,6 +22,10 @@ import {
     GET_JOBS_BEGIN,
     GET_JOBS_SUCCESS,
     SET_EDIT_JOB,
+    EDIT_JOB_BEGIN,
+    EDIT_JOB_SUCCESS,
+    EDIT_JOB_ERROR,
+    DELETE_JOB_BEGIN,
 
 } from "./actions"
 
@@ -261,12 +265,42 @@ const AppProvider = ({children}) => {
         dispatch({type:SET_EDIT_JOB,payload:{id}})
     }
     
-    const editJob = () => {
-        console.log('edit job')
+    //#### edit/update job front end
+    const editJob = async () => {
+        dispatch({type:EDIT_JOB_BEGIN})
+
+        try {
+            const {
+                position,
+                company,
+                jobLocation,
+                jobType,
+                status,
+            } = state
+            await authFetch.patch(`/jobs/${state.editJobId}`,{
+                company,position,jobLocation,jobType,status
+            })
+
+            dispatch({type:EDIT_JOB_SUCCESS})
+            
+            dispatch({type:CLEAR_VALUES})
+        } catch (error) {
+            if(error.response.status === 401) return
+            dispatch({type:EDIT_JOB_ERROR,payload:{msg: error.response.data.msg}})
+        }
     }
 
-    const deleteJob = (id) =>{
-        console.log(`delete job: ${id}`)
+
+    //#### delete job front end
+    const deleteJob = async (jobId) =>{
+        dispatch({type:DELETE_JOB_BEGIN})
+        try {
+            await authFetch.delete(`/jobs/${jobId}`)
+            getJobs()
+        } catch (error) {
+            console.log(error.response)
+            //logoutUser()
+        }
     }
 
     return <AppContext.Provider 
