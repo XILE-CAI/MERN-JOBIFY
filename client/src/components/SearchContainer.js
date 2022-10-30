@@ -2,7 +2,7 @@ import React from 'react'
 
 const SearchContainer = () => {
   return (
-    <h1>Search component</h1>
+    <h1></h1>
   )
 }
 
