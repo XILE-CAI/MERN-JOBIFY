@@ -161,3 +161,14 @@ npm start
 #### FormRawSelect
 
 #### moment format setup
+
+#### edit and delete job function
+
+#### Mockaroo generate Mock data
+
+##### Populate Databas 
+
+##### Show Stats pages
+- aggregation pipeline
+- show stats object setup
+-Show stats front end setup

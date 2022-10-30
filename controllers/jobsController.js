@@ -3,6 +3,7 @@ import { StatusCodes} from'http-status-codes'
 import { BadRequestError, NotFoundError, UnAuthenticatedError } from '../errors/index.js'
 import checkPermissions from "../utils/checkPermissions.js"
 import CustomAPIError from "../errors/custom-api.js"
+import mongoose from "mongoose"
 
 //#### create job
 const createJob = async (req, res) => {
@@ -74,9 +75,30 @@ const deleteJob = async (req, res) => {
 }
 
 
-
+//####Show Stats function
 const showStats = async (req, res) => {
-    res.send('show stats')
+    let stats = await Job.aggregate([
+        {$match: {createdBy:mongoose.Types.ObjectId(req.user.userId)}},
+        //group by status: pending declined, interview
+        {$group: {_id:'$status',count:{ $sum:1}}}
+    ])
+
+    //return stats as object{} instead of array[]
+    stats = stats.reduce((acc, curr) => {
+        const {_id:title, count} = curr
+        acc[title] = count
+        return acc
+    },{})
+
+    //default setup for stats
+    const defaultStats = {
+        pending: stats.pending || 0,
+        interview: stats.interview || 0,
+        declined: stats.declined || 0
+    }
+
+    let monthlyApplications = []
+    res.status(StatusCodes.OK).json({defaultStats, monthlyApplications})
 }
 
 
