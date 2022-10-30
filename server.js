@@ -1,10 +1,11 @@
+dotenv.config()
 import express from 'express'
 const app = express()
 
 import dotenv from 'dotenv'
 import connectDB from './db/connect.js'
 
-dotenv.config()
+
 
 import morgan from 'morgan'
 //avoid to use try catch
