@@ -52,28 +52,54 @@ npm start
 
 #### Landing Page
 - main html tag
-- importlogo.svg and main.svg
+- import logo.svg and main.svg
 - import Landing in App.js
 
 #### Styled Components
 - npm install styled-components
 - import styled 
+- prefer to named 'Wrapper'
+- in landing page replace main tag
+- put all wrappers in /src/assets/wrappers
 
 #### Logo and Images
-- unDraw
+- unDraw and Figma
 
 #### Logo component
-- reuse later
+- create components folder
+- create Logo.js
+- export as default 
+- create index.js in components
+- import all components in index.js and export
+- import needed component from /components/index.js
 
 #### React Router
 - npm install history@5 react-router-dom@6
 - import {BrowserRouter, Routes, Route, Link} 
+- set Link in landing page
 
-#### Setup Pages
+#### Setup All Pages
 - Error Page
 - Register Page
-- Create FormRow Component
-- alert component
+- Dashboard page
+- create index.js & import pages & export similar with components
+- import pages in App.js
+- finish pages setup in App
+
+#### Setup Error page
+- Link to home page
+
+#### Setup Register page
+- import UseState & UseEffect
+- set initialState(name,email,password,isMember)
+- Create FormRow Component for input row
+
+#### FormRow component
+- create FormRow.js in components
+- setup import & export
+- setup for name email password
+- hint type name value
+
 
 #### toggle function
 
@@ -171,4 +197,4 @@ npm start
 ##### Show Stats pages
 - aggregation pipeline
 - show stats object setup
--Show stats front end setup
+- Show stats front end setup

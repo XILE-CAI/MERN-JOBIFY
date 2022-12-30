@@ -19,6 +19,7 @@ const Landing = () => {
                 <p>
                 Deep v jianbing typewriter taxidermy church-key kickstarter tofu snackwave. Lo-fi echo park plaid bushwick health goth vaporware quinoa. Franzen bicycle rights locavore hashtag everyday carry master cleanse pug coloring book meditation raclette hexagon bespoke edison bulb helvetica.
                 </p>
+                {/* use Link to go register page */}
                 <Link to="/register" className='btn btn-hero'>
                     Login/Register
                 </Link>
