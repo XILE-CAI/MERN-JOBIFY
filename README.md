@@ -100,13 +100,30 @@ npm start
 - setup for name email password
 - hint type name value
 
+#### Alert Component
+- create Alert.js in components
+- alert-danger & alert-success
+- eventually setup in global context
+- showAlert in initialState(true&false)
 
-#### toggle function
+#### toggle Member function
+- control register & login
+- use in register page
 
-#### useContext
-- import React,{useState, useReducer, useContext} from 'react'
-- set alert use reducer
-- dynamic alert info
+#### use Global Context
+- in src create context directory
+- action.js
+- reducer.js setup all functions
+- appContext.js setup all states
+
+#### useReducer
+- useReducer vs Redux
+- reducer.js only one reducer function, state & action (depended on different action return differently)
+- set actions.js for using reducer
+
+#### Display Alert
+- setup imports(reducer.js & appContext.js)
+- remember Clear Alert
 
 #### Setup Server
 - npm init -y

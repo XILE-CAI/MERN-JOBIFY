@@ -1,17 +1,22 @@
 import { 
     DISPLAY_ALERT, 
     CLEAR_ALERT, 
+
     REGISTER_USER_BEGIN,
     REGISTER_USER_SUCCESS,
     REGISTER_USER_ERROR,
+
     LOGIN_USER_BEGIN,
     LOGIN_USER_SUCCESS,
     LOGIN_USER_ERROR,
+
     TOGGLE_SIDEBAR,
     LOGOUT_USER,
+
     UPDATE_USER_BEGIN,
     UPDATE_USER_SUCCESS,
     UPDATE_USER_ERROR,
+
     HANDLE_CHANGE,
     CLEAR_VALUES,
     CREATE_JOB_BEGIN,
@@ -26,13 +31,12 @@ import {
     DELETE_JOB_BEGIN,
     SHOW_STATS_BEGIN,
     SHOW_STATS_SUCCESS,
-
 } from "./actions"
 
 import { initialState  } from "./appContext"
 
 const reducer = (state, action) => {
-    //#### alert
+    //#### Alert
     if(action.type === DISPLAY_ALERT){
         return {
             ...state,

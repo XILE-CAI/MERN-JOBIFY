@@ -1,4 +1,4 @@
-import React,{ useReducer, useContext} from 'react'
+import React, { useReducer, useContext} from 'react'
 import reducer from './reducer'
 import { 
     DISPLAY_ALERT, 
@@ -28,7 +28,6 @@ import {
     DELETE_JOB_BEGIN,
     SHOW_STATS_BEGIN,
     SHOW_STATS_SUCCESS,
-
 } from "./actions"
 
 import axios from 'axios'
@@ -61,9 +60,8 @@ const initialState={
    numOfPages:1,
    page:1,
    //status
-    stats:{},
-    monthlyApplications:[],
-
+   stats:{},
+   monthlyApplications:[],
 }
 
 //first step create context object
@@ -71,6 +69,9 @@ const AppContext = React.createContext()
 
 //children
 const AppProvider = ({children}) => {
+
+    //first parameter reducer is a function import from reducer.js
+    //using reducer setup
     const [state,dispatch] = useReducer(reducer, initialState)
 
     //axios global setup
@@ -101,15 +102,17 @@ const AppProvider = ({children}) => {
         return Promise.reject(error)
     })
     
+
+    //Functions
+    //Alert
     const displayAlert = () => {
         dispatch({ type: DISPLAY_ALERT})
         clearAlert()
     }
-
     const clearAlert = () =>{
         setTimeout(()=>{
             dispatch({type: CLEAR_ALERT})
-        },5000)
+        },3000)
     }
 
     //local storage
