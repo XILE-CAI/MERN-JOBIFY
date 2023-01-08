@@ -1,8 +1,8 @@
-dotenv.config()
 import express from 'express'
 const app = express()
 
 import dotenv from 'dotenv'
+dotenv.config()
 import connectDB from './db/connect.js'
 
 
@@ -60,6 +60,9 @@ app.use(errorHandlerMiddleware)
 //frontend port is localhost 3000
 const port = process.env.PORT || 5000
 
+
+
+//if connect is success then i can spin up server
 //connectDB return a promise so need to use async and await
 const start = async () => {
     try {

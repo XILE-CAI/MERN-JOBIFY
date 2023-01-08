@@ -27,7 +27,7 @@ const getAllJobs = async (req, res) => {
 }
 
 
-// #### update/edit function
+//#### update/edit function
 const updateJob = async (req, res) => {
     const {id:jobId} = req.params
     const {company, position} = req.body
@@ -100,7 +100,6 @@ const showStats = async (req, res) => {
     let monthlyApplications = []
     res.status(StatusCodes.OK).json({defaultStats, monthlyApplications})
 }
-
 
 
 export {deleteJob, createJob, getAllJobs, updateJob, showStats}

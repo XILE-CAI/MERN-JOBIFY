@@ -126,8 +126,12 @@ npm start
 - remember Clear Alert
 
 #### Setup Server
-- npm init -y
+- npm init -y(create package.json)
 - create server.js
+
+#### ES6 VS CommonJS
+- ES6: const express from 'express'(recommend)
+- CommonJS: const express = require('express')
 
 #### NodeMon and Basic Express Server
 - npm install nodemon --save-dev
@@ -135,25 +139,59 @@ npm start
 - npm install express
 
 #### Not Found Middleware
+- in the root create <b>middleware<b> folder
+- not-found.js
+- setup function
+- return 404 with message 'Route does not exist'
+- import in server.js
 - make sure import .js extension
+- place after home route 
 
 #### Error Middleware
+- similar with not found middleware
+
 #### ENV Variable
 - npm install dotenv
-- import dotenv
+- import dotenv from 'dotenv'
 - dotenv.config()
+- create .env in root
+- create .gitignore in root  /node_modules .env
 
 #### Connect to MongoDB
 - npm install mongoose
+- create db folder
+- create connect.js
+- setup connectDB(url)
+- in server.js create start() function
+- get connection string
+- setup as MONGO_URL in .env
+- provide credentials and DB name
 
 #### Auth Controller and Route Structure
-#### Jobs Controller and Route Structure
+- create controllers folder
+- authController.js
+- create functions
+- export {register, login, updateUser}
+- create routes folder
+- authRoutes.js
+- setup express router
+- export default router
+- import authRouter in server.js 
 
-#### insomnia
+#### Jobs Controller and Route Structure
+- similar to authController
 
 #### User Model
-#### validate email
+- models folder
+- User.js
+- setup schema
+- name, email, password, lastName, location
+- all {type:string}
+- export default mongoose.model('User', UserSchema)
+
+#### validate email in User model
 - npm install validator
+- import validator from 'validator'
 
 #### register user
 

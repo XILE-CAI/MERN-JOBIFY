@@ -12,7 +12,6 @@ const initialState = {
     isMember:true,
 }
 
-
 const Register = () => {
     const [values, setValues] = useState(initialState)
 
@@ -21,6 +20,7 @@ const Register = () => {
         user, 
         isLoading, 
         showAlert,
+        //functions
         displayAlert,
         registerUser,
         loginUser,
@@ -29,13 +29,15 @@ const Register = () => {
     const navigate = useNavigate()
 
     const handleChange = (e) => {
+        //keep all previous values but change target value
         setValues({...values,[e.target.name]:e.target.value})
     }
    
+    //make sure input all value or will show alert
     const onSubmit = e => {
-        e.preventDefault(); 
+       e.preventDefault(); 
        const {name, email, password, isMember} = values
-       // only if you are not a member then need name
+       // only if you are not a member then need a name
        if(!email || !password || (!isMember && !name)){
             displayAlert()
             return 
